@@ -9,6 +9,7 @@
 </head>
 <body>
 
+	<h1>Exemplo de CRUD utilizando variáveis estáticas</h1>
 
 
 	<a href="listar.jsp">Cadastro de Pessoas</a>
