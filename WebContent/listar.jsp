@@ -34,6 +34,8 @@
 				<td><%= p.getPeso() %></td>
 				<td><%= p.getIMC() %></td>
 				<td><%= p.getSituacao() %></td>
+				<td><a href="cadastro.jsp?id=<%= p.getIdpessoa() %>">Alterar</a>
+				<td><a href="excluir.jsp?id=<%= p.getIdpessoa() %>">Excluir</a>
 			</tr>
 	<% 
 		}
@@ -41,7 +43,7 @@
 	</table>
 	
 	<div class="text-right">
-		<a href="cadastro.jsp" class="btn btn-primary">Novo</a>
+		<a href="cadastro.jsp?id=0" class="btn btn-primary">Novo</a>
 	</div>
 	
 	</div>

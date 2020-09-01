@@ -1,3 +1,5 @@
+<%@page import="org.libertas.Pessoa"%>
+<%@page import="org.libertas.PessoaDao"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -13,24 +15,32 @@
 	<h1>Cadastro de Pessoas</h1>
 	<hr/>
 	
+	<%
+		int id = Integer.parseInt(request.getParameter("id"));
+		PessoaDao pdao = new PessoaDao();
+		Pessoa p = pdao.consultar(id);
+	%>
+	
 	<form action="salvar.jsp" method="post">
+		<input type="hidden" name="idpessoa" value="<%= p.getIdpessoa() %>"/>
+		
 		<div class="input-group mb-3">
 		  <div class="input-group-prepend">
 		    <span class="input-group-text" id="inputGroup-sizing-default">Nome</span>
 		  </div>
-		  <input type="text" name="nome" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+		  <input type="text" name="nome" value="<%= p.getNome() %>" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
 		</div>
 		<div class="input-group mb-3">  
 		  <div class="input-group-prepend">
 		    <span class="input-group-text" id="inputGroup-sizing-default">Altura</span>
 		  </div>
-		  <input type="text" name="altura" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+		  <input type="text" name="altura" value="<%= p.getAltura() %>" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
 		</div>
 		<div class="input-group mb-3">
 		  <div class="input-group-prepend">
 		    <span class="input-group-text" id="inputGroup-sizing-default">Peso</span>
 		  </div>
-		  <input type="text" name="peso" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+		  <input type="text" name="peso" value="<%= p.getPeso() %>" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
 		</div>
 		
 

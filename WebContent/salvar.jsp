@@ -14,12 +14,17 @@
 <body>
 	<%
 		Pessoa p = new Pessoa();
+		p.setIdpessoa(Integer.parseInt(request.getParameter("idpessoa")));
 		p.setNome( request.getParameter("nome") );
 		p.setAltura( Double.parseDouble(request.getParameter("altura")) );
 		p.setPeso(Double.parseDouble(request.getParameter("peso")));
 		
 		PessoaDao pdao = new PessoaDao();
-		pdao.inserir(p);
+		if (p.getIdpessoa()>0) {
+			pdao.alterar(p);
+		} else {
+			pdao.inserir(p);
+		}
 		
 		response.sendRedirect("listar.jsp");
 	%>

@@ -1,9 +1,10 @@
 package org.libertas;
 
 public class Pessoa {
-	private String nome;
+	private String nome = "";
 	private double peso;
 	private double altura;
+	private int idpessoa;
 	
 	public double getIMC() {
 		return peso / (altura * altura);
@@ -39,6 +40,15 @@ public class Pessoa {
 	public void setAltura(double altura) {
 		this.altura = altura;
 	}
+
+	public int getIdpessoa() {
+		return idpessoa;
+	}
+
+	public void setIdpessoa(int idpessoa) {
+		this.idpessoa = idpessoa;
+	}
+	
 	
 	
 }
